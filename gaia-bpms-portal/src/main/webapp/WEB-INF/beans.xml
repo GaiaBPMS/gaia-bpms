@@ -1,9 +1,5 @@
 <beans>
-    <alternatives>
-        <class>com.vaadin.cdi.tutorial.UserGreetingImpl</class>
-        <class>com.vaadin.cdi.tutorial.CustomAccessControl</class>
-    </alternatives>
     <decorators>
-        <class>com.vaadin.cdi.tutorial.NavigationLogDecorator</class>
+        <class>org.gaia.portal.cdi.NavigationLogDecorator</class>
     </decorators>
 </beans>
