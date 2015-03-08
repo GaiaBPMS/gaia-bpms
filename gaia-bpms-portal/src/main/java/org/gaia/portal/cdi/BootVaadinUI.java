@@ -9,7 +9,7 @@ import com.vaadin.cdi.access.JaasAccessControl;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.UI;
 
-@Theme("valo")
+@Theme("gaiatheme")
 @CDIUI("")
 @Push
 @SuppressWarnings("serial")
