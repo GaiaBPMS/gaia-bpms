@@ -6,20 +6,22 @@ import javax.ejb.Startup;
 import javax.inject.Inject;
 
 import org.activiti.engine.ProcessEngine;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 @Startup
 @Singleton
 public class TestBean {
 
-	//private static Logger log = LoggerFactory.getLogger(TestBean.class.getName());
+	private static Logger logger = LoggerFactory.getLogger(TestBean.class.getName());
 
 	@Inject
 	private ProcessEngine processEngine;
 
 	@PostConstruct
-	protected void init() {
-		System.out.println("Process engine '" + processEngine.getName()
+	public void init() {
+		logger.info("----------------------  Process engine '" + processEngine.getName()
 				+ "' is up and running!");
 	}
 

@@ -40,7 +40,8 @@
 
 		<!-- Activiti BPMN -->
 		<org.activiti.version>5.17.0</org.activiti.version>
-		<org.springframework.context.version>3.1.0.RELEASE</org.springframework.context.version>
+		<!-- <org.springframework.context.version>3.1.0.RELEASE</org.springframework.context.version> -->
+		<org.springframework.context.version>3.0.3.RELEASE</org.springframework.context.version>
 
 		<!-- LDAP Library -->
 		<unboundid-ldapsdk.version>2.3.6</unboundid-ldapsdk.version>
@@ -236,6 +237,11 @@
 			<dependency>
 				<groupId>org.activiti</groupId>
 				<artifactId>activiti-ldap</artifactId>
+				<version>${org.activiti.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.activiti</groupId>
+				<artifactId>activiti-spring</artifactId>
 				<version>${org.activiti.version}</version>
 			</dependency>
 			<dependency>

@@ -3,6 +3,9 @@ package org.gaia.portal.pages.about;
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 
+import org.activiti.engine.ProcessEngine;
+import org.gaia.portal.cdi.activiti.TestBean;
+
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.cdi.CDIView;
@@ -20,6 +23,9 @@ public class AboutView extends CustomComponent implements View {
 	@Inject
 	private AccessControl accessControl;
 	
+	@Inject
+	private ProcessEngine processEngine;
+	
 	@Override
 	public void enter(ViewChangeEvent event) {
 		final VerticalLayout layout = new VerticalLayout();
@@ -31,6 +37,7 @@ public class AboutView extends CustomComponent implements View {
 		button.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				layout.addComponent(new Label("User " + accessControl.getPrincipalName()));
+				layout.addComponent(new Label("User " + processEngine));
 				setCompositionRoot(layout);
 			}
 		});
