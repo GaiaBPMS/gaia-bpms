@@ -20,8 +20,8 @@ public class TestBean {
 	private ProcessEngine processEngine;
 
 	@PostConstruct
-	public void init() {
-		logger.info("----------------------  Process engine '" + processEngine.getName()
+	protected void init() {
+		logger.info("------------ Process engine '" + processEngine.getName()
 				+ "' is up and running!");
 	}
 
