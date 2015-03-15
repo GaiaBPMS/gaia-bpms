@@ -119,7 +119,7 @@ public class LoginView extends CustomComponent implements View, ClickListener {
 			JaasAccessControl.login(username, password);
 			JaasAccessControl.getCurrentRequest().getSession()
 					.setAttribute("loggedIn", username);
-			navigationEvent.fire(new NavigationEvent("about"));
+			navigationEvent.fire(new NavigationEvent("workspace"));
 		} catch (ServletException e) {
 			Notification.show("Wrong password or user name!");
 		}
