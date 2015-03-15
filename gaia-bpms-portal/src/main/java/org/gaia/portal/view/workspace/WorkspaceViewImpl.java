@@ -3,6 +3,7 @@ package org.gaia.portal.view.workspace;
 import javax.inject.Inject;
 
 import org.activiti.engine.ProcessEngine;
+import org.gaia.portal.Messages;
 import org.gaia.portal.cdi.annotation.MVPView;
 
 import com.vaadin.cdi.CDIView;
@@ -44,6 +45,7 @@ public class WorkspaceViewImpl extends CustomComponent implements
 		});
 
 		layout.addComponent(new Label("GAIA Workspace"));
+		layout.addComponent(new Label(Messages.getString("About.HELLO_STRING")));
 		layout.addComponent(button);
 	}
 }
