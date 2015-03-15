@@ -1,4 +1,4 @@
-package org.gaia.portal.pages.login;
+package org.gaia.portal.view.login;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -7,6 +7,7 @@ import org.gaia.cdi.properties.annotation.ButtonProperties;
 import org.gaia.cdi.properties.annotation.PasswordFieldProperties;
 import org.gaia.cdi.properties.annotation.TextFieldProperties;
 import org.gaia.portal.cdi.NavigationEvent;
+import org.gaia.portal.cdi.annotation.MVPView;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.cdi.CDIView;
@@ -33,6 +34,7 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
 @CDIView("login")
+@MVPView
 public class LoginView extends CustomComponent implements View, ClickListener {
 
 	@Inject

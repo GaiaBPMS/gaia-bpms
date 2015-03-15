@@ -1,10 +1,11 @@
-package org.gaia.portal.pages.about;
+package org.gaia.portal.view.about;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 
 import org.activiti.engine.ProcessEngine;
 import org.gaia.portal.cdi.activiti.TestBean;
+import org.gaia.portal.cdi.annotation.MVPView;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -18,6 +19,7 @@ import com.vaadin.ui.Label;
 
 
 @CDIView("about")
+@MVPView
 public class AboutView extends CustomComponent implements View {
 
 	@Inject
