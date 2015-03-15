@@ -2,6 +2,7 @@
 Light BPMS based on Activiti, Vaadin and JEE
 Run with Wildfly 8.2
 
+## Explore internal h2 database.
 If you want explore h2 database please download h2console from 
 ```
 https://github.com/wildfly/quickstart/tree/master/h2-console
