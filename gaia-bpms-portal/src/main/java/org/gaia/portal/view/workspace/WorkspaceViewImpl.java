@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import org.activiti.engine.ProcessEngine;
 import org.gaia.portal.Messages;
+import org.gaia.portal.cdi.LocaleMessages;
 import org.gaia.portal.cdi.annotation.MVPView;
 
 import com.vaadin.cdi.CDIView;
@@ -21,6 +22,9 @@ import com.vaadin.ui.Button.ClickEvent;
 public class WorkspaceViewImpl extends CustomComponent implements
 		WorkspaceView, View {
 
+	@Inject
+	private LocaleMessages locales;
+	
 	@Inject
 	private AccessControl accessControl;
 
@@ -46,6 +50,7 @@ public class WorkspaceViewImpl extends CustomComponent implements
 
 		layout.addComponent(new Label("GAIA Workspace"));
 		layout.addComponent(new Label(Messages.getString("About.HELLO_STRING")));
+		layout.addComponent(new Label(locales.getString("About.HELLO_STRING")));
 		layout.addComponent(button);
 	}
 }
