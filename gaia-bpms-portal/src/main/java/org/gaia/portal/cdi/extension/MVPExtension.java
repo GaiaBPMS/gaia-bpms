@@ -1,23 +1,37 @@
 package org.gaia.portal.cdi.extension;
 
 import java.lang.reflect.Field;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import javax.enterprise.context.spi.CreationalContext;
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.InjectionException;
+import javax.enterprise.inject.spi.AfterBeanDiscovery;
 import javax.enterprise.inject.spi.AnnotatedType;
+import javax.enterprise.inject.spi.BeanManager;
 import javax.enterprise.inject.spi.Extension;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.enterprise.inject.spi.InjectionTarget;
+import javax.enterprise.inject.spi.ProcessInjectionPoint;
 import javax.enterprise.inject.spi.ProcessInjectionTarget;
 
 import org.gaia.portal.cdi.annotation.MVPView;
 
+/**
+ * http://docs.jboss.org/cdi/spec/1.1.EDR1/html/spi.html
+ * @author robal
+ *
+ */
 public class MVPExtension implements Extension {
 
-	public <T> void initializeMVPLoading(
+
+	void afterBeanDiscovery(@Observes AfterBeanDiscovery abd, BeanManager bm) {
+		System.out.println("---------------   afterBeanDiscovery COMPLETE.");
+	}
+	
+	public <T> void processInjectionTarget(
 			final @Observes ProcessInjectionTarget<T> pit) {
 		AnnotatedType<T> at = pit.getAnnotatedType();
 		if (!at.isAnnotationPresent(MVPView.class)) {
@@ -32,7 +46,8 @@ public class MVPExtension implements Extension {
 			@Override
 			public void inject(T instance, CreationalContext<T> ctx) {
 				it.inject(instance, ctx);
-				System.out.println("---------------   Create MVP: " + instance.getClass().getCanonicalName());
+				System.out.println("---------------   Create MVP: "
+						+ instance.getClass().getCanonicalName());
 			}
 
 			@Override
@@ -61,7 +76,7 @@ public class MVPExtension implements Extension {
 			}
 		};
 		pit.setInjectionTarget(wrapped);
-		
+
 	}
 
 }
