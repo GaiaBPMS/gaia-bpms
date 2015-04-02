@@ -12418,3 +12418,15 @@ div.v-layout.v-horizontal.v-widget {
 .gaiatheme .loginmiddlepanel {
 	background: #bbb;
 }
+
+.gaiatheme .redBackground {
+	background: red;
+}
+
+.gaiatheme .blueBackground {
+	background: blue;
+}
+
+.gaiatheme .yellowBackground {
+	background: yellow;
+}

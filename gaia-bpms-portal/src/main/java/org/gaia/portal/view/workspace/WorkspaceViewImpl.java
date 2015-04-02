@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import org.activiti.engine.ProcessEngine;
 import org.gaia.portal.Messages;
 import org.gaia.portal.cdi.LocaleMessages;
+import org.gaia.portal.cdi.NavigationEvent;
 import org.gaia.portal.cdi.annotation.MVPView;
 
 import com.vaadin.cdi.CDIView;
@@ -19,17 +20,19 @@ import com.vaadin.ui.Button.ClickEvent;
 
 @MVPView
 @CDIView("workspace")
-public class WorkspaceViewImpl extends CustomComponent implements
-		WorkspaceView, View {
+public class WorkspaceViewImpl extends CustomComponent implements WorkspaceView, View {
 
 	@Inject
 	private LocaleMessages locales;
-	
+
 	@Inject
 	private AccessControl accessControl;
 
 	@Inject
 	private ProcessEngine processEngine;
+
+	@Inject
+	private javax.enterprise.event.Event<NavigationEvent> navigationEvent;
 
 	@Override
 	public void enter(ViewChangeEvent event) {
@@ -37,14 +40,11 @@ public class WorkspaceViewImpl extends CustomComponent implements
 		layout.setMargin(true);
 		setCompositionRoot(layout);
 
-		Button button = new Button("Show login user");
+		Button button = new Button("Show task list");
 
 		button.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				layout.addComponent(new Label("User "
-						+ accessControl.getPrincipalName()));
-				layout.addComponent(new Label("User " + processEngine));
-				setCompositionRoot(layout);
+				navigationEvent.fire(new NavigationEvent("Task"));
 			}
 		});
 
